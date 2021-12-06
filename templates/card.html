@@ -1,0 +1,31 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <p>
+            <a href="{{url_for('welcome')}}">Home</a>
+        </p>
+        <h1>Flash Card</h1>
+        Question: {{card.question}} <br>
+        Answer: {{card.answer}}
+        <p>
+            {% if index < max_index %}
+            <button>
+                <a href="{{ url_for('card', index=index + 1)}}">
+                    Next Card
+                </a>
+            </button>
+            {% else %}
+            <button>
+                <a href="{{ url_for('card', index=0)}}">
+                    Next Card
+                </a>
+            </button>
+            {% endif %}
+        </p>
+    
+    
+    </body>
+
+</html>
