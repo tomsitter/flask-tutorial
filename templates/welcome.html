@@ -1,23 +1,24 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Tutorial App</title>
-</head>
-<body>
-    <h1>Tutorial app home page</h1>
-    <p>
-        This is the demo app for <em>Getting started with Flask</em>
-    </p>
-    <h2>Flash Card</h2>
-    <ul>
-        {% for card in cards %}
-            <li>
-                <a href="{{ url_for('card', index=loop.index0) }}">
-                    {{ card.question }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
+{% extends 'base.html' %}
 
-</html>
+{% block title %}
+    Welcome
+{% endblock title %}
+
+{% block content %}
+<h1>Tutorial app home page</h1>
+<p>
+    This is the demo app for <em>Getting started with Flask</em>
+</p>
+<h2>Flash Card</h2>
+<ul>
+    {% for card in cards %}
+        <li>
+            <a href="{{ url_for('card', index=loop.index0) }}">
+                {{ card.question }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('add_card') }}">Add a new card</a>
+{% endblock content %}
